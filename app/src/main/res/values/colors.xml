@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00695C</color>
+    <color name="colorPrimaryDark">#004D40</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="title_color">#8000695C</color>
+    <color name="button_color">#4A6572</color>
+    <color name="background">#66B2DFDB</color>
+    <color name="divider_color">#8000695C</color>
+    <color name="team_text_color">@color/colorPrimary</color>
+    <color name="score_text_color">#DD2C00</color>
+    <color name="sub_title_text_color">#4A6572</color>
+    <color name="sub_score_text_color">#795548</color>
+    <color name="inning_background_color">#1A00695C</color>
+    <color name="button_stroke_color">#00695C</color>
+    <color name="reset_button_color">#B34A6572</color>
+</resources>

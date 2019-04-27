@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/button_color</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textColor">@color/title_color</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:padding">@dimen/default_margin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TeamText">
+        <item name="android:textColor">@color/team_text_color</item>
+        <item name="android:textSize">@dimen/team_text_size</item>
+        <item name="android:padding">@dimen/default_margin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ScoreText">
+        <item name="android:textColor">@color/score_text_color</item>
+        <item name="android:textSize">@dimen/score_text_size</item>
+        <item name="android:padding">@dimen/score_text_padding</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SubTitleText">
+        <item name="android:textColor">@color/sub_title_text_color</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:padding">@dimen/sub_text_padding</item>
+    </style>
+
+    <style name="SubScoreText">
+        <item name="android:textColor">@color/sub_score_text_color</item>
+        <item name="android:padding">@dimen/sub_text_padding</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sub_score_text_size</item>
+    </style>
+
+    <style name="ButtonText">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">@dimen/sub_text_padding</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+</resources>

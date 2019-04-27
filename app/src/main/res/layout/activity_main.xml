@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/baseball_text"
+            style="@style/TitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseball_icon"
+            android:drawableLeft="@drawable/baseball_icon"
+            android:drawableEnd="@drawable/baseball_icon"
+            android:drawableRight="@drawable/baseball_icon"
+            android:gravity="center_horizontal"
+            android:text="@string/baseball"
+            app:layout_constraintBottom_toTopOf="@id/score_board"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/score_board"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/score_table_margin_bottom"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/reset_button"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintTop_toBottomOf="@id/baseball_text">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TeamText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/team_a" />
+
+                <include layout="@layout/horizontal_divider" />
+
+                <TextView
+                    android:id="@+id/team_a_score"
+                    style="@style/ScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/number_zero" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:background="@color/inning_background_color"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/team_a_inning_decrease_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:background="@drawable/arrow_left_button"
+                        android:contentDescription="@string/decrease_inning"
+                        android:onClick="decreaseInningForTeamA" />
+
+                    <TextView
+                        style="@style/SubTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/inning" />
+
+                    <TextView
+                        android:id="@+id/team_a_inning"
+                        style="@style/SubScoreText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_zero" />
+
+                    <ImageButton
+                        android:id="@+id/team_a_inning_increase_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:background="@drawable/arrow_right_button"
+                        android:contentDescription="@string/increase_inning"
+                        android:onClick="increaseInningForTeamA" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/score_table_margin_bottom"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SubTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/r" />
+
+                        <include layout="@layout/horizontal_divider_with_margin" />
+
+                        <TextView
+                            android:id="@+id/team_a_run"
+                            style="@style/SubScoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_zero" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SubTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/h" />
+
+                        <include layout="@layout/horizontal_divider_with_margin" />
+
+                        <TextView
+                            android:id="@+id/team_a_hit"
+                            style="@style/SubScoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_zero" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SubTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/e" />
+
+                        <include layout="@layout/horizontal_divider_with_margin" />
+
+                        <TextView
+                            android:id="@+id/team_a_error"
+                            style="@style/SubScoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_zero" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/team_a_run_button"
+                        style="@style/ButtonText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="runForTeamA"
+                        android:text="@string/run" />
+
+                    <Button
+                        android:id="@+id/team_a_hit_button"
+                        style="@style/ButtonText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="hitForTeamA"
+                        android:text="@string/hit" />
+
+                    <Button
+                        android:id="@+id/team_a_error_button"
+                        style="@style/ButtonText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="errorForTeamA"
+                        android:text="@string/error" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/default_margin"
+                android:background="@color/divider_color" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TeamText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/team_b" />
+
+                <include layout="@layout/horizontal_divider" />
+
+                <TextView
+                    android:id="@+id/team_b_score"
+                    style="@style/ScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/number_zero" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:background="@color/inning_background_color"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/team_b_inning_decrease_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:background="@drawable/arrow_left_button"
+                        android:contentDescription="@string/decrease_inning"
+                        android:onClick="decreaseInningForTeamB" />
+
+                    <TextView
+                        style="@style/SubTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/inning" />
+
+                    <TextView
+                        android:id="@+id/team_b_inning"
+                        style="@style/SubScoreText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_zero" />
+
+                    <ImageButton
+                        android:id="@+id/team_b_inning_increase_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:background="@drawable/arrow_right_button"
+                        android:contentDescription="@string/increase_inning"
+                        android:onClick="increaseInningForTeamB" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/score_table_margin_bottom"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SubTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/r" />
+
+                        <include layout="@layout/horizontal_divider_with_margin" />
+
+                        <TextView
+                            android:id="@+id/team_b_run"
+                            style="@style/SubScoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_zero" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SubTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/h" />
+
+                        <include layout="@layout/horizontal_divider_with_margin" />
+
+                        <TextView
+                            android:id="@+id/team_b_hit"
+                            style="@style/SubScoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_zero" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SubTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/e" />
+
+                        <include layout="@layout/horizontal_divider_with_margin" />
+
+                        <TextView
+                            android:id="@+id/team_b_error"
+                            style="@style/SubScoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_zero" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/team_b_run_button"
+                        style="@style/ButtonText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="runForTeamB"
+                        android:text="@string/run" />
+
+                    <Button
+                        android:id="@+id/team_b_hit_button"
+                        style="@style/ButtonText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="hitForTeamB"
+                        android:text="@string/hit" />
+
+                    <Button
+                        android:id="@+id/team_b_error_button"
+                        style="@style/ButtonText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="errorForTeamB"
+                        android:text="@string/error" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/reset_button"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:background="@color/reset_button_color"
+            android:onClick="reset"
+            android:text="@string/reset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/score_board" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

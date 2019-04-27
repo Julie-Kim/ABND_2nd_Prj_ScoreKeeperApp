@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Score Keeper App</string>
+    <string name="baseball">Baseball</string>
+    <string name="team_a">Team A</string>
+    <string name="team_b">Team B</string>
+    <string name="run">Run</string>
+    <string name="hit">Hit</string>
+    <string name="error">Error</string>
+    <string name="inning">Inning : </string>
+    <string name="r">R</string>
+    <string name="h">H</string>
+    <string name="e">E</string>
+    <string name="reset">Reset</string>
+    <string name="number_zero">0</string>
+    <string name="decrease_inning">Decrease Inning Number</string>
+    <string name="increase_inning">Increase Inning Number</string>
+</resources>
